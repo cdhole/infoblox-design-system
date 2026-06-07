@@ -1,0 +1,71 @@
+/* Infoblox Design System — global styles */
+:root {
+  --ibx-navy: #003a70;
+  --ibx-navy-dark: #002850;
+  --ibx-blue: #0070d2;
+  --ibx-blue-light: #4a9eff;
+  --ibx-orange:    #f47c20;   /* brand accent orange */
+  --ibx-brand-red: #e2231a;   /* Infoblox brand red — the iconic dot color */
+  --ibx-red:       #d32f2f;   /* semantic destructive red */
+  --ibx-midnight:  #001a3d;   /* infoblox.com hero navy */
+  --ibx-black:     #000000;   /* infoblox.com page bg */
+  --ibx-green:     #00b388;   /* Infoblox brand green — confirm exact value */
+
+  --ibx-ink: #0b1a2b;
+  --ibx-ink-2: #344563;
+  --ibx-ink-3: #6b7a90;
+  --ibx-line: #e3e8ef;
+  --ibx-surface: #ffffff;
+  --ibx-surface-2: #f6f8fb;
+  --ibx-surface-3: #eef2f7;
+
+  /* PDS foundation ramp (Pegasus = Infoblox brand) */
+  --pds-accent: #0070d2;     /* primary blue */
+  --pds-deep:   #003a70;     /* Infoblox navy */
+  --pds-darker: #002850;
+  --pds-light:  #4a9eff;
+  --pds-soft:   #cfe4fb;
+
+  /* ADS foundation ramp (Aurora = Infoblox cloud blue) */
+  --ads-accent: #0099d2;     /* primary cloud blue */
+  --ads-deep:   #003a70;     /* Infoblox navy */
+  --ads-darker: #002850;
+  --ads-light:  #66c5e8;
+  --ads-soft:   #d1eef8;
+
+  /* xDS foundation ramp (Axur = orange) */
+  --xds-accent: #f47c20;
+
+  --ibx-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --ibx-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --shadow-1: 0 1px 2px rgba(11, 26, 43, 0.06), 0 1px 1px rgba(11, 26, 43, 0.04);
+  --shadow-2: 0 4px 12px rgba(11, 26, 43, 0.08), 0 2px 4px rgba(11, 26, 43, 0.05);
+  --shadow-3: 0 12px 32px rgba(11, 26, 43, 0.12), 0 4px 8px rgba(11, 26, 43, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--ibx-font);
+  color: var(--ibx-ink);
+  background: var(--ibx-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--ibx-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+h1 { font-size: 40px; line-height: 1.15; }
+h2 { font-size: 28px; line-height: 1.25; }
+h3 { font-size: 20px; line-height: 1.3; }
+p  { line-height: 1.6; color: var(--ibx-ink-2); margin: 0; }
+
+code, pre { font-family: var(--ibx-mono); font-size: 13px; }
