@@ -103,12 +103,22 @@ import { pdsFigmaUrl as figmaUrlFor } from '../pds-components';
 
           <section id="installation">
             <h2 class="cp__h2">Installation</h2>
-            <app-code-block language="bash" code="npm install @infoblox/pegasus-design-system" />
+            <p class="cp__p" style="margin-bottom:8px">
+              Text inputs use Angular Material with PDS theming. Install
+              <a href="https://github.com/Infoblox-CTO/csp.pds-core.ui" target="_blank"><code>&#64;infoblox-cto/pds-core</code></a>
+              for the form-extensions module + Material peer deps.
+            </p>
+            <app-code-block language="bash" code="npm install @infoblox-cto/pds-core @angular/material" />
           </section>
 
           <section id="usage-code">
             <h2 class="cp__h2">Usage</h2>
+            <p class="cp__p" style="margin-bottom:8px">
+              There is no dedicated <code>&lt;ib-pds-text-field&gt;</code>. Apply PDS theming to <code>&lt;input matInput&gt;</code> inside a Material <code>&lt;mat-form-field&gt;</code>.
+            </p>
             <app-code-block language="html" [code]="templateCode" />
+            <h3 class="cp__h3" style="margin-top:14px">In a module</h3>
+            <app-code-block language="typescript" [code]="moduleCode" />
           </section>
 
           <section id="api">
@@ -159,17 +169,41 @@ export class InputPageComponent {
     { id: 'do-dont', label: "Do & Don't" },
   ];
 
-  templateCode = `<pds-input
-  label="Email address"
-  placeholder="you@infoblox.com"
-  helpText="We'll never share your email."
-  [value]="email" />
+  templateCode = `<!-- Standard text input -->
+<mat-form-field appearance="outline">
+  <mat-label>Email address</mat-label>
+  <input matInput type="email" placeholder="you@infoblox.com" [(ngModel)]="email" />
+  <mat-hint>We'll never share your email.</mat-hint>
+</mat-form-field>
 
-<pds-input
-  label="Password"
-  type="password"
-  state="error"
-  helpText="Password must be at least 8 characters." />`;
+<!-- With validation error -->
+<mat-form-field appearance="outline">
+  <mat-label>Password</mat-label>
+  <input matInput type="password" [(ngModel)]="pw" required minlength="8" #pwCtrl="ngModel" />
+  <mat-error *ngIf="pwCtrl.errors?.['minlength']">Password must be at least 8 characters.</mat-error>
+</mat-form-field>
+
+<!-- Disabled -->
+<mat-form-field appearance="outline">
+  <mat-label>Locked field</mat-label>
+  <input matInput value="cannot edit" disabled />
+</mat-form-field>`;
+
+  moduleCode = `import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { PdsFormExtensionsModule } from '@infoblox-cto/pds-core';
+
+@NgModule({
+  imports: [
+    CommonModule, FormsModule,
+    MatFormFieldModule, MatInputModule,
+    PdsFormExtensionsModule,
+  ],
+})
+export class MyFeatureModule {}`;
 
   specs: SpecRow[] = [
     { name: 'label', type: 'string', default: "''", description: 'Visible label above the input.' },

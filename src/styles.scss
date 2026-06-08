@@ -33,6 +33,29 @@
   --ads-light:  #66c5e8;
   --ads-soft:   #d1eef8;
 
+  /* iDS foundation ramp (Infoblox IQ = brand green on light surfaces, matching real product) */
+  --iq-accent:    #0a6e30;     /* primary IQ green — deep, the dark end of the logo gradient */
+  --iq-accent-hi: #1aa14a;     /* hover/active — brighter end of the gradient */
+  --iq-bright:    #1bbf5d;     /* bright accent for highlights */
+  --iq-deep:      #06451f;     /* very deep green (logo gradient terminal) */
+  --iq-soft:      #e8f5ed;     /* soft mint fill (chips, hover tints) */
+  --iq-soft-2:   #d5ecdd;      /* hover step */
+
+  /* IQ light surfaces — product is light-themed with green accents */
+  --iq-bg:       #ffffff;
+  --iq-panel:    #f6f8fb;      /* secondary panel (sidebars, inset blocks) */
+  --iq-card:     #ffffff;      /* cards, inputs, message bubbles */
+  --iq-card-2:   #f0f3f7;      /* hover step */
+  --iq-border:   #e3e8ef;
+  --iq-border-2: #cdd5dd;
+  --iq-text:     #0b1a2b;
+  --iq-text-2:   #344563;
+  --iq-text-3:   #6b7a90;
+
+  /* IQ filled-pill action button (the black pill with count badge in WIP designs) */
+  --iq-pill:     #0b1a2b;
+  --iq-pill-hi:  #1a2b40;
+
   /* xDS foundation ramp (Axur = orange) */
   --xds-accent: #f47c20;
 

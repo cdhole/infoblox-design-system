@@ -206,12 +206,15 @@ import { pdsFigmaUrl as figmaUrlFor } from '../pds-components';
           </section>
 
           <section id="installation">
-            <h2 class="cp__h2">Installation</h2>
-            <app-code-block language="bash" code="npm install @infoblox/pegasus-design-system" />
+            <h2 class="cp__h2">Installation <span class="src src--code">From pds-core</span></h2>
+            <p class="cp__p" style="margin-bottom:8px">
+              From <a href="https://github.com/Infoblox-CTO/csp.pds-core.ui" target="_blank"><code>&#64;infoblox-cto/pds-core</code></a> · the live PDS Angular library.
+            </p>
+            <app-code-block language="bash" code="npm install @infoblox-cto/pds-core" />
           </section>
 
           <section id="usage-code">
-            <h2 class="cp__h2">Usage</h2>
+            <h2 class="cp__h2">Usage <span class="src src--code">From pds-core</span></h2>
             <h3 class="cp__h3">Template</h3>
             <app-code-block language="html" [code]="templateCode" />
             <h3 class="cp__h3">In a component</h3>
@@ -553,45 +556,44 @@ export class ButtonPageComponent {
     { id: 'changelog', label: 'Changelog' },
   ];
 
-  usageCode = `import { Component } from '@angular/core';
-import { AdsButtonComponent } from '@infoblox/pegasus-design-system';
+  usageCode = `import { NgModule, Component } from '@angular/core';
+import { PdsButtonDirective } from '@infoblox-cto/pds-core';
 
 @Component({
   selector: 'my-feature',
-  standalone: true,
-  imports: [AdsButtonComponent],
-  template: \`
-    <ads-button type="primary" (click)="save()">Save</ads-button>
-    <ads-button type="secondary">Cancel</ads-button>
-    <ads-button type="danger" [loading]="deleting" (click)="del()">Delete</ads-button>
-  \`,
+  templateUrl: './my-feature.component.html',
 })
 export class MyFeatureComponent {
   deleting = false;
   save() { /* … */ }
   del()  { this.deleting = true; }
-}`;
+}
+
+@NgModule({
+  declarations: [MyFeatureComponent],
+  imports: [PdsButtonDirective],
+})
+export class MyFeatureModule {}`;
 
   templateCode = `<!-- Primary action -->
-<ads-button type="primary">Save</ads-button>
+<button ibPdsButton theme="primary" (click)="save()">Save</button>
 
 <!-- Secondary action -->
-<ads-button type="secondary">Cancel</ads-button>
+<button ibPdsButton theme="secondary">Cancel</button>
 
 <!-- Destructive action with icon -->
-<ads-button type="danger" [show-left-icon]="true" left-icon="trash">Delete</ads-button>
+<button ibPdsButton theme="danger" iconLeft="fa-trash">Delete</button>
 
-<!-- Loading state (new in 2.5) -->
-<ads-button type="primary" [loading]="submitting">Submit</ads-button>
-
-<!-- Dropdown / split button -->
-<ads-button type="secondary" [dropdown]="true">Export</ads-button>
-
-<!-- Multi-action -->
-<ads-button type="primary" [multiAction]="true">Save · ⌄</ads-button>
+<!-- Disabled -->
+<button ibPdsButton theme="primary" [disabled]="!form.valid">Submit</button>
 
 <!-- Link variant -->
-<ads-button type="link" href="/docs">Learn more</ads-button>`;
+<button ibPdsButton theme="link" routerLink="/docs">Learn more</button>
+
+<!-- Multi-action (split button) -->
+<ib-pds-multi-action-button [actions]="exportActions" theme="primary">
+  Save
+</ib-pds-multi-action-button>`;
 
   /** Spec table for all properties as documented in the Figma component description. */
   properties: SpecRow[] = [

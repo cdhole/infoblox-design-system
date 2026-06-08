@@ -19,6 +19,8 @@ const adsStubRoutes = ADS_ALL_SLUGS.map(slug => ({
     import('./pages/ads/components/ads-stub-page.component').then(m => m.AdsStubPageComponent),
 }));
 
+
+
 export const routes: Routes = [
   {
     path: '',

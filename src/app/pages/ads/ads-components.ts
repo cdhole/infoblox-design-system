@@ -78,15 +78,8 @@ export const ADS_SECTIONS: AdsSection[] = [
     components: [],
   },
   {
-    id: 'patterns',
-    title: '4 · Patterns / Templates',
-    components: [
-      { slug: 'templates', name: 'Templates', nodeId: '14910-160401' },
-    ],
-  },
-  {
     id: 'content-guidelines',
-    title: '5 · Content Guidelines',
+    title: '4 · Content Guidelines',
     components: [
       { slug: 'number-format',    name: 'Number Format',    nodeId: '15901-41440', status: '🚧' },
       { slug: 'abbreviations',    name: 'Abbreviations',    nodeId: '15901-41441', status: '🚧' },

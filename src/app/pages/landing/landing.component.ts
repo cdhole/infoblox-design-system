@@ -282,7 +282,6 @@ interface Tile {
         border-color 280ms ease,
         box-shadow 280ms ease;
     }
-    /* glow halo on the inside */
     .tile::before {
       content: ''; position: absolute; inset: -1px;
       border-radius: inherit;
@@ -296,7 +295,6 @@ interface Tile {
       pointer-events: none;
       transition: opacity 280ms ease;
     }
-    /* ambient blob */
     .tile::after {
       content: ''; position: absolute;
       width: 260px; height: 260px; border-radius: 50%;
@@ -318,7 +316,6 @@ interface Tile {
     .tile:hover .tile__sheen { transform: translateX(180%); }
     .tile:hover .tile__arrow { transform: translateX(4px); }
 
-    /* moving sheen on hover */
     .tile__sheen {
       position: absolute; top: 0; left: 0;
       width: 30%; height: 100%;
